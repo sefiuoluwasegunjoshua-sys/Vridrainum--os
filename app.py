@@ -1,4 +1,4 @@
-from flask import Flask
+mport Flask
 app = Flask(__name__)
 
 HTML = '''
@@ -44,8 +44,4 @@ function startListen(){
 '''
 
 @app.route('/')
-def home():
-    return HTML
-
-if __name__ == '__main__':
-    app.run()
+def home()
