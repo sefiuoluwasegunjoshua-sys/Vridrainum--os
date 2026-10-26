@@ -3,11 +3,22 @@ function testSpeak(){
  var m=new SpeechSynthesisUtterance('Vibranium OS online Sefiu, working!');
  speechSynthesis.speak(m);
 }
-function startListen(){
+function listen(){
+ speechSynthesis.cancel();
+ speechSynthesis.resume();
+ // Unlock trick for Chrome
+ var unlock=new SpeechSynthesisUtterance('');
+ speechSynthesis.speak(unlock);
+ 
+ var R=window.SpeechRecognition||window.webkitSpeechRecognition;
  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
  if(!SR){alert('Update Chrome');return;}
  var rec=new SR(); rec.lang='en-US';
- rec.onstart=function(){document.getElementById('st').innerText='LISTENING';};
+ rec.onstart=function(){document.getElementById('st').innerText='LISTENING';};r.onstart=function(){ 
+  speechSynthesis.resume();
+  document.getElementById('st').innerText='LISTENING...';
+  document.getElementById('log').innerHTML='Listening... speak now';
+};
  rec.onerror=function(e){alert('Mic error: '+e.error+' - Allow mic in site settings');};
  rec.onresult=function(e){
   var t=e.results[0][0].transcript;
