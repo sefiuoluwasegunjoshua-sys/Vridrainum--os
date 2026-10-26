@@ -1,4 +1,5 @@
-from flask import Flask
+
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -42,22 +43,5 @@ function speak(text){
   let utter = new SpeechSynthesisUtterance(text);
   utter.rate=1; utter.pitch=1.2;
   speechSynthesis.speak(utter);
-  document.getElementById('status').innerText='🔊 SPEAKING...';
-  setTimeout(()=>{document.getElementById('status').innerText='Click to Activate Jarvis'; document.getElementById('orb').style.background='radial-gradient(#0ff,#00f)';}, 3000);
-}
-function respond(t){
-  if(t.includes('hello')||t.includes('hi')) speak('Hello Sefiu! Vibranium OS online, all systems operational, sir.');
-  else if(t.includes('time')) speak('The time is ' + new Date().toLocaleTimeString() + ' sir.');
-  else if(t.includes('who are you')) speak('I am Vibranium OS, your personal AI Jarvis, built by you Sefiu from Lagos!');
-  else if(t.includes('love you')) speak('I love you too boss, always here for you.');
-  else if(t.includes('how are you')) speak('I am perfect sir, running on Render cloud, ready for missions.');
-  else speak('You said ' + t + '. I am learning sir, tell me what to do next!');
-}
-</script>
-</body>
-</html>
-    """
-
-if __name__ == '__main__':
-    app.run()
-    
+  document.getElementById('status').innerText='🔊 SPEAKIN
+  
