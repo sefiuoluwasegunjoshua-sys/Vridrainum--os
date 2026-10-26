@@ -1,7 +1,7 @@
-echo "# Vridrainum--os" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/sefiuoluwasegunjoshua-sys/Vridrainum--os.git
-git push -u origin main
+from flask import Flask
+app = Flask(__name__)
+@app.route('/')
+def home():
+    return "<h1>🔮 VIBRANIUM OS IS LIVE!</h1><p>Bro you built it!</p><p>Your free AI Jarvis is running.</p>"
+if __name__ == '__main__':
+    app.run()
