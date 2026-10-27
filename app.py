@@ -1,4 +1,4 @@
-import os
+
 (t);
   var sel=document.getElementById('voiceSel');
   if(voices[sel.value]) u.voice=voices[sel.value];
