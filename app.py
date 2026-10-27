@@ -1,45 +1,5 @@
 import os
-from flask import Flask, request, jsonify
-app = Flask(__name__)
-
-PAGE = '''
-<html><head><meta name="viewport" content="width=device-width,initial-scale=1">
-<style>body{background:#000;color:#0ff;text-align:center;font-family:monospace;padding:12px}button{padding:18px;background:#0ff;color:#000;border:none;border-radius:25px;margin:6px;font-weight:bold}#log{background:#111;color:#0f0;padding:12px;border-radius:10px;text-align:left;min-height:80px}select{padding:10px;width:90%}</style>
-</head><body><h2>VIBRANIUM OS v3</h2><h3 id="st">Loading voices...</h3>
-<select id="voiceSel"></select><br>
-<button onclick="testVoice()">TEST VOICE</button>
-<button onclick="startListen()">HEY JARVIS</button>
-<button onclick="replay()" style="background:#0f0">🔊 PLAY ANSWER</button>
-<div id="log">Wait for voices to load, then select voice, then TEST</div>
-<script>
-var synth=window.speechSynthesis;
-var lastAnswer='';
-var voices=[];
-function loadVoices(){
- voices=synth.getVoices();
- var sel=document.getElementById('voiceSel');
- sel.innerHTML='';
- voices.forEach((v,i)=>{
-  var o=document.createElement('option');
-  o.textContent=v.name+' ('+v.lang+')';
-  o.value=i;
-  sel.appendChild(o);
- });
- if(voices.length>0){
-  document.getElementById('st').innerText='Ready - '+voices.length+' voices';
-  document.getElementById('log').innerText='Select a voice then TEST VOICE. Recommended: Google US English';
- } else {
-  document.getElementById('st').innerText='No voices - waiting...';
- }
-}
-synth.onvoiceschanged=loadVoices;
-setTimeout(loadVoices,1000);
-
-function speak(t){
- lastAnswer=t;
- synth.cancel();
- setTimeout(()=>{
-  var u=new SpeechSynthesisUtterance(t);
+(t);
   var sel=document.getElementById('voiceSel');
   if(voices[sel.value]) u.voice=voices[sel.value];
   else if(voices[0]) u.voice=voices[0];
