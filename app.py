@@ -1,20 +1,4 @@
-
-(t);
-  var sel=document.getElementById('voiceSel');
-  if(voices[sel.value]) u.voice=voices[sel.value];
-  else if(voices[0]) u.voice=voices[0];
-  u.rate=0.9; u.volume=1; u.pitch=1;
-  u.onstart=function(){document.getElementById('st').innerText='Speaking...';};
-  u.onend=function(){document.getElementById('st').innerText='Ready';};
-  u.onerror=function(e){document.getElementById('log').innerText='Speech Error: '+e.error+' - Try another voice';};
-  synth.speak(u);
- },100);
-}
-function testVoice(){speak('Hello boss Sefiu! I am Vibranium OS! Can you hear me now?');}
-function replay(){if(lastAnswer) speak(lastAnswer); else speak('No answer yet boss');}
-function startListen(){
- var R=window.SpeechRecognition||window.webkitSpeechRecognition;
- if(!R){alert('Use Chrome browser boss');return;}
+browser boss');return;}
  var r=new R(); r.lang='en-US';
  r.onstart=function(){document.getElementById('st').innerText='LISTENING...';};
  r.onresult=function(e){
